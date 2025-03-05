@@ -129,6 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e897f56c34b10c47b4882d6d1e4a92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 3879c4498d6a1a94aa59cc4b6d69f1be, type: 2}
   direction: {x: 0, y: 0, z: 0}
-  lifeTime: 3
   angleOffset: 0

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ProjectileWeaponBehavior : MonoBehaviour
 {
+    public WeaponSO weaponData;
     public Vector3 direction;
-    public float lifeTime;
+    //public float lifeTime;
     public float angleOffset = 0f;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        Destroy(gameObject, lifeTime);
+        Destroy(gameObject, weaponData.lifeTime);
     }
 
     // Update is called once per frame

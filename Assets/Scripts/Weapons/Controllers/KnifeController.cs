@@ -16,7 +16,7 @@ public class KnifeController : WeaponController
     protected override void Attack()
     {
         base.Attack();
-        GameObject spawnedKnife = Instantiate(prefab, transform.position, Quaternion.identity);
+        GameObject spawnedKnife = Instantiate(weaponData.prefab, transform.position, Quaternion.identity);
         spawnedKnife.GetComponent<KnifeBehavior>().DirectionChecker(playerMovement.lastMoveDir);
         //Rigidbody2D rb = spawnedKnife.GetComponent<Rigidbody2D>();
         //rb.velocity = playerMovement.lastMoveDir  * speed; // Move in last move direction

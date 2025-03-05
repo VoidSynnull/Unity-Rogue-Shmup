@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MeleeWeaponBehavior : MonoBehaviour
 {
-    public float lifeTime;
+    public WeaponSO weaponData;
     // Start is called before the first frame update
     protected virtual void Start()
     {
-     Destroy(gameObject, lifeTime);   
+     Destroy(gameObject, weaponData.lifeTime);   
     }
 
 
