@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     Rigidbody2D rb;
     public Vector2 moveDir { get; private set; }
-    public Vector2 lastMoveDir { get; private set; }
+    public Vector2 lastMoveDir { get; private set; } = new Vector2(1, 0);
 
     void Start()
     {

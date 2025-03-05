@@ -4248,8 +4248,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 67949483
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4269,7 +4269,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6615797688736780067}
   - component: {fileID: 5382953271936740291}
-  - component: {fileID: 8955484594736299540}
   m_Layer: 3
   m_Name: Terrain Chunk
   m_TagString: Untagged
@@ -4348,39 +4347,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
---- !u!114 &8955484594736299540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2900626321386383446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9650a55140bed9542a6300919b46b518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propSpawnPoints:
-  - {fileID: 5625618504153407927}
-  - {fileID: 1710281318638868629}
-  - {fileID: 6804771890910379219}
-  - {fileID: 3535282945782533069}
-  - {fileID: 6444419333698717438}
-  - {fileID: 6800692237766125259}
-  propPrefabs:
-  - {fileID: 5491807695578516131, guid: 0bb36fafbf76b7145840576f5038c1d4, type: 3}
-  - {fileID: 1968739899285136199, guid: 306d6307aeb56d34ba17b98f9aeaabbf, type: 3}
-  - {fileID: 7135066794900529435, guid: 1cffd419dea40ee43a5ba2543e3953ae, type: 3}
-  - {fileID: 2089327998220516473, guid: 33abeddb291db41418c2905618e5fa64, type: 3}
-  - {fileID: 7297971009135200578, guid: b43c6b565bab0ac41bd2f31d32090265, type: 3}
-  - {fileID: 3635762417187349184, guid: 4d134ab5bdaea8c48a3c69faf50a1691, type: 3}
-  - {fileID: 943034687339137332, guid: ffe126643c1560e44893fecd8ed3e814, type: 3}
-  - {fileID: 1341639708512611489, guid: 97a8a03deca45674e83b512c339e96ab, type: 3}
-  - {fileID: 6703499230966735402, guid: 2b8fde5ae13e0414ba9acc980c081cbf, type: 3}
-  - {fileID: 5296122644321265703, guid: 46ae59fa364215c458752962a950b42b, type: 3}
-  - {fileID: 6412742235507542953, guid: 702e647055d244e4aa0e68dc6137c8da, type: 3}
-  - {fileID: 2195676850575047098, guid: 45143c49d38fafa4f9ab8ff36efcc23e, type: 3}
-  - {fileID: 7022399784523249833, guid: 7b703e25ac615bd46a9f54d83e78084e, type: 3}
 --- !u!1 &4619884266954839833
 GameObject:
   m_ObjectHideFlags: 0
