@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public EnemySO enemyData;
     public Transform target;
-    public float moveSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, enemyData.MoveSpeed * Time.deltaTime);
     }
 }

@@ -6,13 +6,27 @@ public class ProjectileWeaponBehavior : MonoBehaviour
 {
     public WeaponSO weaponData;
     public Vector3 direction;
-    //public float lifeTime;
     public float angleOffset = 0f;
 
+
+    //current stats
+    protected float currentDamage;
+    protected float currentSpeed;
+    protected int currentPierce;
+    protected float currentCooldownDuration;
+
+
+    private void Awake() {
+        currentDamage = weaponData.Damage;
+        currentSpeed = weaponData.Speed;
+        currentPierce = weaponData.Pierce;
+        currentCooldownDuration = weaponData.CooldownDuration;
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        Destroy(gameObject, weaponData.lifeTime);
+
+        Destroy(gameObject, weaponData.LifeTime);
     }
 
     // Update is called once per frame
@@ -40,6 +54,20 @@ public class ProjectileWeaponBehavior : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, -angle);
     }
 
+    protected virtual void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Enemy")) {
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats.TakeDamage(currentDamage);
+            ReducePierce();
+        }
+    }
+
+    void ReducePierce() {
+        currentPierce -= 1;
+        if (currentPierce <= 0) {
+            Destroy(gameObject);
+        }
+    }
 
 
 }

@@ -10,11 +10,10 @@ public class GarlicController : WeaponController
         base.Start();
     }
 
-    // Update is called once per frame
     protected override void Attack()
     {
         base.Attack();
-        GameObject spawnedGarlic = Instantiate(weaponData.prefab, transform.position, Quaternion.identity);
+        GameObject spawnedGarlic = Instantiate(weaponData.Prefab, transform.position, Quaternion.identity);
         spawnedGarlic.transform.parent = transform;
     }
 }
