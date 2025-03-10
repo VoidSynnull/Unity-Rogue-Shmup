@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 1577884853}
   - component: {fileID: 1577884855}
   - component: {fileID: 1577884854}
+  - component: {fileID: 1577884856}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -766,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03572ed3c1bde864bb711747847b72ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  characterData: {fileID: 11400000, guid: 5eb8fd0a555daa6408ce65262940a940, type: 2}
 --- !u!95 &1577884854
 Animator:
   serializedVersion: 5
@@ -801,6 +802,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1577884854}
+--- !u!114 &1577884856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577884847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce20ad3ab13bcb040acaa75245b1182a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 5eb8fd0a555daa6408ce65262940a940, type: 2}
+  experience: 0
+  level: 1
+  experienceCap: 0
+  levelRanges:
+  - startLevel: 1
+    endLevel: 3
+    experienceCapIncrease: 100
+  - startLevel: 0
+    endLevel: 0
+    experienceCapIncrease: 0
+  - startLevel: 4
+    endLevel: 5
+    experienceCapIncrease: 200
 --- !u!1001 &1741561478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,8 +944,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1236875162461021065, guid: 108fd8ccb3d1909498dafe93a6bba688, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2635122503585870906}
   m_SourcePrefab: {fileID: 100100000, guid: 108fd8ccb3d1909498dafe93a6bba688, type: 3}
+--- !u!1 &2635122503585870905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1236875162461021065, guid: 108fd8ccb3d1909498dafe93a6bba688, type: 3}
+  m_PrefabInstance: {fileID: 2635122503585870904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2635122503585870906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635122503585870905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e24b8f69873ec4459f6655446d30516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: ExpGem
+    prefab: {fileID: 7820601250475015264, guid: 390b282885ca7c449bb8ef4287c31bc1, type: 3}
+    dropRate: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

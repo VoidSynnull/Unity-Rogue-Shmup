@@ -28,6 +28,10 @@ public class MeleeWeaponBehavior : MonoBehaviour
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
             enemyStats.TakeDamage(currentDamage);
         }
+        else if (collision.CompareTag("Prop")) {
+            BreakableProps breakableProp = collision.GetComponent<BreakableProps>();
+            breakableProp.TakeDamage(currentDamage);
+        }
     }
 
 

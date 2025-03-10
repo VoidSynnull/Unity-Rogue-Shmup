@@ -28,6 +28,13 @@ public class EnemyStats : MonoBehaviour
     public void Kill() {
         Destroy(gameObject);
     }
-
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Player")) { 
+        PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+        if (playerStats != null) {
+            playerStats.TakeDamage(enemyData.AttackValue);
+        }
+    }
+    }
 
 }

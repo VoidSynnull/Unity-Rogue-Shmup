@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff401b76094a6046bd18ace1e2da4c0, type: 3}
-  m_Name: Garlic
+  m_Script: {fileID: 11500000, guid: a827872ec82404746a1f70697ad26162, type: 3}
+  m_Name: KnifeCharacter
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4266607968924092791, guid: dd36f66c13880cb4aa6a983ebdd650df, type: 3}
-  damage: 5
-  speed: 1
-  cooldownDuration: 1
-  pierce: 1
-  lifeTime: 1
+  startingWeapon: {fileID: 4409807900292511315, guid: 679e1ed596ca5804fbb69ca0298ce5a5, type: 3}
+  maxHealth: 100
+  recovery: 0.1
+  moveSpeed: 3
+  might: 2
+  projectileSpeed: 1
