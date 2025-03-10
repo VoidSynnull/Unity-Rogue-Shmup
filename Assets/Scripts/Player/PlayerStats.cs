@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public CharacterSO characterData;
+    CharacterSO characterData;
 
     //Current values
     private float _currentHealth;
@@ -12,6 +13,11 @@ public class PlayerStats : MonoBehaviour
     private float _currentMight;
     private float _currentRecovery;
     private float _currentProjectileSpeed;
+    private float _currentMagnet;
+
+
+    //current weapons
+    public List<GameObject> spawnedWeapons;
 
     [Header("Experience/Level")]
     public int experience = 0;
@@ -36,11 +42,19 @@ public class PlayerStats : MonoBehaviour
 
     // Start is called before the first frame update
     void Awake() {
+        //pull data from character select menu
+        characterData = CharacterSelect.GetData();
+        // we got our data, now destroy
+        CharacterSelect.instance.DestroySingleton();
+
         _currentHealth = characterData.MaxHealth;
         _currentMoveSpeed = characterData.MoveSpeed;
         _currentMight = characterData.Might;
         _currentRecovery = characterData.Recovery;
         _currentProjectileSpeed = characterData.ProjectileSpeed;
+        _currentMagnet = characterData.Magnet;
+
+        SpawnWeapon(characterData.StartingWeapon);
     }
 
     private void Start() {
@@ -54,6 +68,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update() {
         InvulnCheck();
+        Recover();
     }
 
     private void InvulnCheck() {
@@ -79,14 +94,13 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void RestoreHealth(float amount) {
-        if (_currentHealth < characterData.MaxHealth) {
+        if(_currentHealth < characterData.MaxHealth) {
             _currentHealth += amount;
-            if (_currentHealth < characterData.MaxHealth) {
+            if (_currentHealth > characterData.MaxHealth) {
                 _currentHealth = characterData.MaxHealth;
             }
-        }
     }
-
+        }
     public void Kill() {
         Debug.Log("Player died");
     }
@@ -107,5 +121,26 @@ public class PlayerStats : MonoBehaviour
         }
 
     }
+
+    private void Recover() {
+        if (_currentHealth < characterData.MaxHealth) {
+            _currentHealth += _currentRecovery * Time.deltaTime;
+            if (_currentHealth > characterData.MaxHealth) {
+                _currentHealth = characterData.MaxHealth;
+            }
+        }
+    }
+
+    public void SpawnWeapon(GameObject weapon) {
+        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.parent = transform;
+        spawnedWeapons.Add(spawnedWeapon);
+    }
+    public float GetCurrentHealth() { return _currentHealth; }
+    public float GetCurrentMight() { return _currentMight; }
+    public float GetCurrentMoveSpeed() { return _currentMoveSpeed; }
+    public float GetCurrentProjectileSpeed() { return _currentProjectileSpeed; }
+    public float GetCurrentMagnet() { return _currentMagnet; }
+
 
 }

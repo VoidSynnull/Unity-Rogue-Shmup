@@ -6,17 +6,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterSO characterData;
-
     Rigidbody2D rb;
     public Vector2 moveDir { get; private set; }
     public Vector2 lastMoveDir { get; private set; } = new Vector2(1, 0);
 
+    PlayerStats playerStats;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();  
+        playerStats = GetComponent<PlayerStats>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,12 +25,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private void FixedUpdate() {
-        rb.velocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);
+        rb.velocity = new Vector2(moveDir.x * playerStats.GetCurrentMoveSpeed(), moveDir.y * playerStats.GetCurrentMoveSpeed());
     }
     public void Move(InputAction.CallbackContext context) {
         moveDir = context.ReadValue<Vector2>().normalized;
         
     }
-
-
 }

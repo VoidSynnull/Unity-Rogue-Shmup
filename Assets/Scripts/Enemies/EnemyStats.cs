@@ -37,4 +37,7 @@ public class EnemyStats : MonoBehaviour
     }
     }
 
+    public float GetCurrentHealth() { return _currentHealth; }
+    public float GetCurrentMoveSpeed() { return _currentMoveSpeed; }
+
 }

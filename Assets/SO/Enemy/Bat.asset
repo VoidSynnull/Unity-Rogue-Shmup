@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   maxHealth: 10
-  attackValue: 1
+  attackValue: 30
   moveSpeed: 1
