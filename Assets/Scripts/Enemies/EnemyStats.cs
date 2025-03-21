@@ -10,7 +10,20 @@ public class EnemyStats : MonoBehaviour
     private float _currentHealth;
     private float _currentMoveSpeed;
     private float _currentAttackValue;
-    // Start is called before the first frame update
+
+    public float despawnDistance = 20f;
+    Transform player;
+
+
+    private void Start() {
+        player = FindObjectOfType<PlayerStats>().transform;
+    }
+    private void Update() {
+        if (Vector2.Distance(transform.position, player.position) >= despawnDistance)
+        {
+            ReturnEnemy();
+        }
+    }
     void Awake()
     {
         _currentHealth = enemyData.MaxHealth;
@@ -37,6 +50,14 @@ public class EnemyStats : MonoBehaviour
     }
     }
 
+    public void ReturnEnemy() {
+        EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+        transform.position = player.position + enemySpawner.spawnPositions[Random.Range(0, enemySpawner.spawnPositions.Count)].position;
+    }
+    private void OnDestroy() {
+        EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+       enemySpawner.GetComponent<EnemySpawner>().OnEnemyDeath();
+    }
     public float GetCurrentHealth() { return _currentHealth; }
     public float GetCurrentMoveSpeed() { return _currentMoveSpeed; }
 

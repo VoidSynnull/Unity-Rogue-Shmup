@@ -11,10 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 lastMoveDir { get; private set; } = new Vector2(1, 0);
 
     PlayerStats playerStats;
+
+    public static Transform PlayerTransform { get; private set; }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();  
         playerStats = GetComponent<PlayerStats>();
+        PlayerTransform = transform;
     }
     
     // Update is called once per frame

@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemyStats = GetComponent<EnemyStats>();
+        target = PlayerMovement.PlayerTransform;
     }
 
     // Update is called once per frame

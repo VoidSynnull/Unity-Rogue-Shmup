@@ -15,14 +15,14 @@ public class GarlicBehavior : MeleeWeaponBehavior
     protected override void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Enemy") && !hitEnemies.Contains(collision.gameObject)) {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(currentDamage);
+            enemyStats.TakeDamage(GetCurrentDamage());
             hitEnemies.Add(collision.gameObject);
             Debug.Log(hitEnemies.Count);
         }
         else if (collision.CompareTag("Prop")) {
             if(hitEnemies.Contains(collision.gameObject)) { return; }
             BreakableProps breakableProp = collision.GetComponent<BreakableProps>();
-            breakableProp.TakeDamage(currentDamage);
+            breakableProp.TakeDamage(GetCurrentDamage());
             hitEnemies.Add(collision.gameObject);
         }
         //base.OnTriggerEnter2D(collision);

@@ -138,7 +138,11 @@ public class PlayerStats : MonoBehaviour
     }
     public float GetCurrentHealth() { return _currentHealth; }
     public float GetCurrentMight() { return _currentMight; }
+    public void SetCurrentMight(float newMight) { _currentMight = newMight; }
+
     public float GetCurrentMoveSpeed() { return _currentMoveSpeed; }
+    public void SetCurrentMoveSpeed(float newMoveSpeed) { _currentMoveSpeed = newMoveSpeed; }
+
     public float GetCurrentProjectileSpeed() { return _currentProjectileSpeed; }
     public float GetCurrentMagnet() { return _currentMagnet; }
 
